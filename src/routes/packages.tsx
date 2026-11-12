@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, Gift } from "lucide-react";
-import { SERVICES } from "@/lib/services";
+import { SERVICES, svcAt } from "@/lib/services";
 import { PageHero } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
@@ -32,7 +32,7 @@ const OFFERS = ["15% OFF* your first booking", "Early Bird — book 30+ days ahe
 function Packages() {
   return (
     <>
-      <PageHero title="Packages" subtitle="Beautiful options for every family, every budget and every dream." image={SERVICES[4].image} video={SERVICES[4].video} />
+      <PageHero title="Packages" subtitle="Beautiful options for every family, every budget and every dream." image={svcAt(4).image} video={svcAt(4).video} />
       <section className="mandala-bg py-14 sm:py-20">
         <SectionTitle title="Packages for Every Celebration" />
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-6 px-3 sm:px-6 md:grid-cols-3">

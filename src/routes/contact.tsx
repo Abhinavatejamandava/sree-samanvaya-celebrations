@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { CONTACT, SERVICES } from "@/lib/services";
+import { CONTACT, SERVICES, svcAt } from "@/lib/services";
 import { PageHero } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 import { RequestForm } from "@/components/site/RequestForm";
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   return (
     <>
-      <PageHero title="Let's Celebrate Together" subtitle="Tell us about your event — we'll respond with ideas and a personalised quote." image={SERVICES[8].image} video={SERVICES[8].video} />
+      <PageHero title="Let's Celebrate Together" subtitle="Tell us about your event — we'll respond with ideas and a personalised quote." image={svcAt(8).image} video={svcAt(8).video} />
       <section className="mandala-bg py-14 sm:py-20">
         <SectionTitle eyebrow="Free quote" title="Book Your Event Today" />
         <div className="mx-auto mt-10 grid max-w-6xl gap-8 px-3 sm:px-6 lg:grid-cols-[1fr_2fr]">

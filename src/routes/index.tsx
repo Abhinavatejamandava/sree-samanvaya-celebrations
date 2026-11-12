@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarHeart, ClipboardList, Gem, MapPin, Palette, ShieldCheck, Sparkles, Star, Wallet, Wrench } from "lucide-react";
-import { SERVICES } from "@/lib/services";
+import { SERVICES, svcAt } from "@/lib/services";
 import { ServiceCard } from "@/components/site/ServiceCard";
 import { SectionTitle, Diya } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
@@ -40,7 +40,7 @@ const REVIEWS = [
 ];
 
 function Home() {
-  const hero = SERVICES[3];
+  const hero = svcAt(3);
   return (
     <>
       <section className="relative isolate min-h-[80vh] overflow-hidden">

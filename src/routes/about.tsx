@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SERVICES } from "@/lib/services";
+import { SERVICES, svcAt } from "@/lib/services";
 import { PageHero } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
@@ -26,7 +26,7 @@ const VALUES = [
 function About() {
   return (
     <>
-      <PageHero title="Our Story" subtitle="Samanvaya means harmony — the beautiful meeting of tradition and modern creativity." image={SERVICES[2].image} video={SERVICES[2].video} />
+      <PageHero title="Our Story" subtitle="Samanvaya means harmony — the beautiful meeting of tradition and modern creativity." image={svcAt(2).image} video={svcAt(2).video} />
       <section className="mandala-bg py-14 sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_2fr]">
           <Reveal><img src={mark} alt="Sree Samanvaya emblem" width={816} height={816} className="animate-float-soft mx-auto w-40 sm:w-64" /></Reveal>

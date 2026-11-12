@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SERVICES } from "@/lib/services";
+import { SERVICES, svcAt } from "@/lib/services";
 import { PageHero, ServiceCard } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
@@ -23,7 +23,7 @@ function ServicesPage() {
   ] as const;
   return (
     <>
-      <PageHero title="Our Services" subtitle="Complete event decoration & styling for traditional Indian celebrations and modern events." image={SERVICES[1].image} video={SERVICES[1].video} />
+      <PageHero title="Our Services" subtitle="Complete event decoration & styling for traditional Indian celebrations and modern events." image={svcAt(1).image} video={svcAt(1).video} />
       {groups.map((g) => (
         <section key={g.key} className="mandala-bg py-14 sm:py-20">
           <SectionTitle title={g.title} />

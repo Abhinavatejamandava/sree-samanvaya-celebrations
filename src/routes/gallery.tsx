@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { SERVICES } from "@/lib/services";
+import { SERVICES, svcAt } from "@/lib/services";
 import { PageHero } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 
@@ -21,7 +21,7 @@ function Gallery() {
   const items = filter === "all" ? SERVICES : SERVICES.filter((s) => s.slug === filter);
   return (
     <>
-      <PageHero title="Our Gallery" subtitle="A showcase of our finest decor, styling and unforgettable celebrations." image={SERVICES[0].image} video={SERVICES[0].video} />
+      <PageHero title="Our Gallery" subtitle="A showcase of our finest decor, styling and unforgettable celebrations." image={svcAt(0).image} video={svcAt(0).video} />
       <section className="mandala-bg py-14 sm:py-20">
         <SectionTitle title="Explore Our Portfolio" />
         <div className="mx-auto mt-8 flex max-w-6xl flex-wrap justify-center gap-2 px-3">

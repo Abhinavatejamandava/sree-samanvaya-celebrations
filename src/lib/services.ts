@@ -358,3 +358,4 @@ export const CONTACT = {
   phone: "+1 (XXX) XXX-XXXX",
   areas: "NY | NJ | PA | DE",
 };
+export const svcAt = (i: number): Service => SERVICES[i]!;

@@ -3,7 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { CheckCircle2, Send } from "lucide-react";
 import { submitServiceRequest } from "@/lib/requests.functions";
 import { requestSchema } from "@/lib/request-schema";
-import { SERVICES } from "@/lib/services";
+import { SERVICES, svcAt } from "@/lib/services";
 
 const field = "w-full min-w-0 rounded-xl border border-input bg-card px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-ring/40";
 const label = "mb-1 block text-xs font-bold tracking-wide text-primary uppercase";
@@ -51,7 +51,7 @@ export function RequestForm({ service }: { service?: string }) {
     <form onSubmit={onSubmit} noValidate className="grid gap-4 rounded-2xl border border-gold/40 bg-card/95 p-4 shadow-card sm:grid-cols-2 sm:p-8">
       <div className="sm:col-span-2">
         <label className={label} htmlFor="service">Service</label>
-        <select id="service" name="service" defaultValue={service ?? SERVICES[0].name} className={field}>
+        <select id="service" name="service" defaultValue={service ?? svcAt(0).name} className={field}>
           {SERVICES.map((s) => <option key={s.slug}>{s.name}</option>)}
           <option>Other / Not sure yet</option>
         </select>
