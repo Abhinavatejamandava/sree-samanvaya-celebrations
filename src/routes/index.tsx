@@ -93,8 +93,8 @@ function Home() {
             <p className="font-accent text-xs tracking-[0.3em] text-gold uppercase">Our promise</p>
             <h2 className="fluid-h2 mt-2 font-semibold tracking-tight text-primary">Every ritual has a story. We design the setting it deserves.</h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">For us, decor is never just flowers and fabric. It is the swing where a mother receives her blessings, the mandap where two families become one, the lamp that lights a prayer. We study each ceremony's meaning, listen to your family's wishes and then craft a space that feels sacred, joyful and unmistakably yours.</p>
-            <div className="mt-6 grid grid-cols-1 gap-3 min-[360px]:grid-cols-3">
-              {["Decor & Styling", "Planning", "Photography"].map((t) => (
+            <div className="mt-6 grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:grid-cols-4">
+              {["Decor & Styling", "Planning", "Catering", "Photography"].map((t) => (
                 <div key={t} className="rounded-xl border border-gold/40 bg-card p-3 text-center text-sm font-semibold text-primary shadow-card">{t}</div>
               ))}
             </div>

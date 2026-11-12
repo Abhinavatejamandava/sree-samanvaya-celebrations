@@ -21,6 +21,8 @@ import photoImg from "@/assets/svc-photography.jpg";
 import planImg from "@/assets/svc-event-planning.jpg";
 import photoVid from "@/assets/videos/photography.mp4.asset.json";
 import planVid from "@/assets/videos/event-planning.mp4.asset.json";
+import cateringImg from "@/assets/svc-catering.jpg";
+import cateringVid from "@/assets/videos/catering.mp4.asset.json";
 import consultVid from "@/assets/videos/consulting.mp4.asset.json";
 
 export type Category = "traditional" | "modern";
@@ -382,6 +384,38 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: "Can we book photography with decor?", a: "Yes — and you'll save with our combo offer." },
       { q: "How soon do we get photos?", a: "Sneak peeks within a few days; full galleries follow after editing." },
+    ],
+  },
+  {
+    slug: "catering",
+    name: "Catering — Indian & American Cuisine",
+    subtitle: "A Feast Your Guests Will Talk About",
+    price: "Custom Quote",
+    category: "modern",
+    image: cateringImg,
+    video: cateringVid.url,
+    tagline: "Every celebration is remembered by its food — let's make yours unforgettable.",
+    short: "Multi-cuisine Indian menus plus American favourites, buffet or plated.",
+    meaning:
+      "In our homes, food is love served on a plate. From the first sweet at a pooja to the grand wedding feast, the menu is how a family welcomes its guests.",
+    story: [
+      "We still remember the aroma of an aunt's biryani drifting through a wedding hall — the moment everyone stopped talking and simply smiled. That is the feeling we cook for.",
+      "Our menus travel across India: Andhra and Telangana spice, Tamil and Kerala classics, Karnataka favourites, rich North Indian and Punjabi curries, Gujarati and Rajasthani thalis, Indo-Chinese street favourites and live dosa, chaat and tandoor stations.",
+      "Hosting friends with different tastes? We also serve American cuisine — sliders, pastas, grills, salads, mac & cheese and kid-friendly plates — so every guest, from grandparents to colleagues, leaves happy.",
+    ],
+    includes: [
+      "South Indian — Andhra, Telangana, Tamil, Kerala & Karnataka",
+      "North Indian & Punjabi — tandoor, curries, breads",
+      "Gujarati, Rajasthani & Indo-Chinese specialities",
+      "American menu — grills, sliders, pasta, salads, desserts",
+      "Pure vegetarian, Jain, vegan & non-veg options",
+      "Live stations, buffet or plated service with staff",
+    ],
+    feeling: "Generous, flavourful and made with love.",
+    faqs: [
+      { q: "Can we mix Indian and American dishes?", a: "Yes — fusion menus are very popular for receptions and baby showers." },
+      { q: "Do you offer pooja prasadam and satvik food?", a: "Yes, we prepare traditional satvik, no-onion-no-garlic and Jain menus." },
+      { q: "Can we do a tasting?", a: "Ask us when you request a quote and we'll arrange the details." },
     ],
   },
   {
