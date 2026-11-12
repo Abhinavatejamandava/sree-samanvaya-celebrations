@@ -5,6 +5,7 @@ import { ServiceCard } from "@/components/site/ServiceCard";
 import { SectionTitle, Diya } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
 import { Petals } from "@/components/site/Petals";
+import { Mandala, OccasionMarquee, Stats, GlowOrbs } from "@/components/site/Graphics";
 import mark from "@/assets/logo-mark.png";
 
 export const Route = createFileRoute("/")({
@@ -50,7 +51,7 @@ function Home() {
         <div className="mx-auto flex min-h-[80vh] max-w-7xl flex-col justify-center px-4 py-16 sm:px-6">
           <img src={mark} alt="" width={816} height={816} className="animate-float-soft h-16 w-16 object-contain sm:h-24 sm:w-24" />
           <p className="mt-4 font-accent text-[0.6rem] tracking-[0.3em] text-gold-soft uppercase sm:text-sm">Traditional Elegance · Modern Creativity</p>
-          <h1 className="fluid-h1 mt-3 max-w-4xl font-bold italic break-words text-ivory">
+          <h1 className="fluid-h1 mt-3 max-w-4xl font-semibold tracking-tight break-words text-ivory">
             Where Traditions Bloom into <span className="text-gold-gradient">Unforgettable Memories</span>
           </h1>
           <p className="mt-4 max-w-xl text-sm text-ivory/90 sm:text-lg">
@@ -69,12 +70,40 @@ function Home() {
 
       <section className="mandala-bg py-16 sm:py-24">
         <SectionTitle eyebrow="What we create" title="Our Featured Services" />
-        <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-4 px-3 min-[420px]:grid-cols-2 sm:gap-6 sm:px-6 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-4 px-3 min-[420px]:grid-cols-2 sm:gap-6 sm:px-6 lg:grid-cols-3 xl:grid-cols-4">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.slug} delay={(i % 5) * 80}><ServiceCard s={s} /></Reveal>
+            <Reveal key={s.slug} delay={(i % 4) * 80}><ServiceCard s={s} /></Reveal>
           ))}
         </div>
       </section>
+
+
+      <OccasionMarquee />
+
+      <section className="relative isolate overflow-hidden py-16 sm:py-24">
+        <GlowOrbs />
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
+          <Reveal>
+            <div className="relative mx-auto aspect-square w-full max-w-md">
+              <Mandala className="absolute inset-0 h-full w-full text-gold/50" />
+              <img src={svcAt(0).image} alt="Seemantham decor by Sree Samanvaya" loading="lazy" width={1536} height={864} className="absolute inset-[14%] h-[72%] w-[72%] rounded-full border-4 border-gold object-cover shadow-gold" />
+            </div>
+          </Reveal>
+          <Reveal delay={150}>
+            <p className="font-accent text-xs tracking-[0.3em] text-gold uppercase">Our promise</p>
+            <h2 className="fluid-h2 mt-2 font-semibold tracking-tight text-primary">Every ritual has a story. We design the setting it deserves.</h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">For us, decor is never just flowers and fabric. It is the swing where a mother receives her blessings, the mandap where two families become one, the lamp that lights a prayer. We study each ceremony's meaning, listen to your family's wishes and then craft a space that feels sacred, joyful and unmistakably yours.</p>
+            <div className="mt-6 grid grid-cols-1 gap-3 min-[360px]:grid-cols-3">
+              {["Decor & Styling", "Planning", "Photography"].map((t) => (
+                <div key={t} className="rounded-xl border border-gold/40 bg-card p-3 text-center text-sm font-semibold text-primary shadow-card">{t}</div>
+              ))}
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">One trusted team for your entire celebration — no juggling vendors, no stress.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      <Stats />
 
       <section className="bg-maroon-gradient py-16 text-primary-foreground sm:py-20">
         <SectionTitle eyebrow="Why families trust us" title="Why Choose Us?" light />
@@ -122,7 +151,7 @@ function Home() {
 
       <section className="relative overflow-hidden bg-maroon-gradient py-16 text-center text-primary-foreground">
         <div className="flex justify-center gap-6"><Diya className="h-10 w-10" /><Diya className="h-10 w-10" /><Diya className="h-10 w-10" /></div>
-        <h2 className="fluid-h2 mt-4 px-3 font-bold italic">Let's Create Your Perfect Celebration</h2>
+        <h2 className="fluid-h2 mt-4 px-3 font-semibold tracking-tight">Let's Create Your Perfect Celebration</h2>
         <p className="mx-auto mt-3 max-w-xl px-3 text-sm opacity-90 sm:text-base">Your family's story deserves a beautiful setting. Tell us your dream — we'll handle every detail.</p>
         <Link to="/contact" className="mt-6 inline-block rounded-full bg-gold-gradient px-7 py-3 font-bold text-maroon-deep shadow-gold transition hover:scale-105">Request a Custom Quote</Link>
       </section>

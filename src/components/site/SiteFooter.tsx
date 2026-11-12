@@ -14,7 +14,7 @@ export function SiteFooter() {
         <div className="min-w-0">
           <h3 className="font-display text-xl font-bold text-gold-soft">Services</h3>
           <ul className="mt-3 space-y-1 text-sm">
-            {SERVICES.slice(0, 6).map((s) => (
+            {SERVICES.slice(0, 8).map((s) => (
               <li key={s.slug}><Link to="/services/$slug" params={{ slug: s.slug }} className="opacity-90 hover:text-gold-soft">{s.name}</Link></li>
             ))}
           </ul>

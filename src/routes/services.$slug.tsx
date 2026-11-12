@@ -5,6 +5,7 @@ import { ServiceCard } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
 import { Petals } from "@/components/site/Petals";
+import { Mandala } from "@/components/site/Graphics";
 import { RequestForm } from "@/components/site/RequestForm";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -47,7 +48,7 @@ function ServicePage() {
         <Petals />
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-32">
           <p className="font-accent text-[0.6rem] tracking-[0.3em] text-gold-soft uppercase sm:text-xs">{s.subtitle}</p>
-          <h1 className="fluid-h1 mt-3 max-w-3xl font-bold italic break-words text-ivory">{s.name}</h1>
+          <h1 className="fluid-h1 mt-3 max-w-3xl font-semibold tracking-tight break-words text-ivory">{s.name}</h1>
           <p className="mt-4 max-w-xl font-display text-lg italic text-ivory/95 sm:text-2xl">{s.tagline}</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a href="#request" className="rounded-full bg-gold-gradient px-6 py-3 text-center font-bold text-maroon-deep shadow-gold transition hover:scale-105">Request This Service</a>
@@ -73,7 +74,8 @@ function ServicePage() {
         </div>
       </section>
 
-      <section className="bg-maroon-gradient py-14 text-primary-foreground sm:py-20">
+      <section className="relative overflow-hidden bg-maroon-gradient py-14 text-primary-foreground sm:py-20">
+        <Mandala className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 text-gold/15" />
         <SectionTitle eyebrow="Thoughtfully included" title="What We Create For You" light />
         <ul className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-3 px-4 sm:grid-cols-2 sm:px-6">
           {s.includes.map((it, i) => (

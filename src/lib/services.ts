@@ -17,6 +17,10 @@ import poojaVid from "@/assets/videos/pooja.mp4.asset.json";
 import ibsVid from "@/assets/videos/indian-baby-shower.mp4.asset.json";
 import absVid from "@/assets/videos/american-baby-shower.mp4.asset.json";
 import annivVid from "@/assets/videos/anniversary.mp4.asset.json";
+import photoImg from "@/assets/svc-photography.jpg";
+import planImg from "@/assets/svc-event-planning.jpg";
+import photoVid from "@/assets/videos/photography.mp4.asset.json";
+import planVid from "@/assets/videos/event-planning.mp4.asset.json";
 import consultVid from "@/assets/videos/consulting.mp4.asset.json";
 
 export type Category = "traditional" | "modern";
@@ -316,6 +320,68 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: "Can you plan a surprise?", a: "Yes — we coordinate secretly with the family." },
       { q: "Do you do milestone birthdays too?", a: "Yes, we style all kinds of family milestones." },
+    ],
+  },
+  {
+    slug: "event-planning",
+    name: "Event Planning & Management",
+    subtitle: "From First Idea to Final Farewell",
+    price: "Custom Quote",
+    category: "modern",
+    image: planImg,
+    video: planVid.url,
+    tagline: "You enjoy every moment. We manage every detail.",
+    short: "Full-service planning, timelines, vendors and day-of coordination.",
+    meaning:
+      "Great celebrations don't happen by chance — they are planned with love, patience and precision. Our planners become an extension of your family, carrying the weight so you can carry the joy.",
+    story: [
+      "We have watched too many parents spend their child's wedding running between the kitchen and the stage. We believe the people who matter most should be in the photographs, not behind them.",
+      "Our planners build your timeline, budget and guest flow; source and coordinate caterers, priests, DJs, photographers and venues; and run the day minute by minute with calm confidence.",
+      "Muhurtham timings, ritual sequences, rentals, seating and send-off — handled. You simply arrive, smile and celebrate.",
+    ],
+    includes: [
+      "Personal planner and planning timeline",
+      "Budget planning and tracking",
+      "Venue, caterer, priest, DJ and vendor coordination",
+      "Ritual sequence and muhurtham scheduling",
+      "Guest flow, seating and RSVP support",
+      "Full day-of coordination team",
+    ],
+    feeling: "Calm, organised and completely carefree.",
+    faqs: [
+      { q: "Can you plan just the day-of?", a: "Yes — we offer full planning, partial planning and day-of coordination." },
+      { q: "Do you plan multi-day events?", a: "Absolutely — engagement to reception, under one cohesive plan." },
+    ],
+  },
+  {
+    slug: "photography",
+    name: "Photography & Videography",
+    subtitle: "Candid Moments · Cinematic Memories",
+    price: "Custom Quote",
+    category: "modern",
+    image: photoImg,
+    video: photoVid.url,
+    tagline: "Decor fades, flowers wilt — but these memories will last forever.",
+    short: "Candid photography, cinematic films and reels for every celebration.",
+    meaning:
+      "Photographs are the only part of the day you get to keep. A grandmother's blessing, a nervous smile, a tear during the kanyadaanam — we capture what you'll want to relive for generations.",
+    story: [
+      "Years from now, your children will open an album and ask, 'Who is that?' — and you'll tell them the whole story. We take those photographs.",
+      "Our photographers understand Indian ceremonies — when the thali is tied, when the rice is showered, when the elders bless — so no sacred moment is ever missed.",
+      "Because we also style your decor, every frame looks harmonious: the light, the colours, the setting and the people, all telling one beautiful story.",
+    ],
+    includes: [
+      "Candid and traditional photography",
+      "Cinematic highlight films",
+      "Instagram reels and teasers",
+      "Pre-wedding and maternity shoots",
+      "Drone coverage (where permitted)",
+      "Edited online gallery and premium albums",
+    ],
+    feeling: "Timeless, emotional and beautifully real.",
+    faqs: [
+      { q: "Can we book photography with decor?", a: "Yes — and you'll save with our combo offer." },
+      { q: "How soon do we get photos?", a: "Sneak peeks within a few days; full galleries follow after editing." },
     ],
   },
   {

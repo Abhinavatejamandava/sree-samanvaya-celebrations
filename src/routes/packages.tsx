@@ -40,7 +40,7 @@ function Packages() {
             <Reveal key={p.name} delay={i * 100}>
               <div className={`relative h-full rounded-3xl border-2 p-6 shadow-card ${p.popular ? "border-gold bg-maroon-gradient text-primary-foreground shadow-gold" : "border-gold/40 bg-card"}`}>
                 {p.popular && <span className="absolute -top-3 right-4 rounded-full bg-gold-gradient px-3 py-1 text-xs font-bold text-maroon-deep">Most Popular</span>}
-                <h3 className={`font-display text-3xl font-bold italic ${p.popular ? "text-gold-soft" : "text-primary"}`}>{p.name}</h3>
+                <h3 className={`font-display text-3xl font-semibold tracking-tight ${p.popular ? "text-gold-soft" : "text-primary"}`}>{p.name}</h3>
                 <p className="mt-1 text-sm opacity-80">Starting at</p>
                 <p className="font-display text-4xl font-bold">{p.price}</p>
                 <ul className="mt-5 space-y-2 text-sm">

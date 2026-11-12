@@ -31,7 +31,7 @@ export function PageHero({ title, subtitle, image, video }: { title: string; sub
       )}
       <div className="absolute inset-0 -z-10 bg-hero-fade" />
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-28">
-        <h1 className="fluid-h1 max-w-3xl font-bold italic break-words text-ivory">{title}</h1>
+        <h1 className="fluid-h1 max-w-3xl font-semibold tracking-tight break-words text-ivory">{title}</h1>
         <p className="mt-3 max-w-xl text-sm text-ivory/90 sm:text-lg">{subtitle}</p>
       </div>
     </section>

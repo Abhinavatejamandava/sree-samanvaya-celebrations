@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SERVICES, svcAt } from "@/lib/services";
 import { PageHero, ServiceCard } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
+import { OccasionMarquee, Stats } from "@/components/site/Graphics";
 import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/services/")({
@@ -34,6 +35,8 @@ function ServicesPage() {
           </div>
         </section>
       ))}
+      <OccasionMarquee />
+      <Stats />
     </>
   );
 }
