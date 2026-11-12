@@ -28,3 +28,4 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+- Service content lives in src/lib/services.ts and drives /services/$slug pages; add services there, not as new route files. Why: one template keeps every service page consistent.
