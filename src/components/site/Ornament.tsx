@@ -18,7 +18,7 @@ export function SectionTitle({ eyebrow, title, light = false }: { eyebrow?: stri
         <p className={`font-accent text-[0.65rem] tracking-[0.3em] uppercase sm:text-xs ${light ? "text-gold-soft" : "text-gold"}`}>{eyebrow}</p>
       )}
       <h2 className={`fluid-h2 mt-2 font-semibold tracking-tight break-words ${light ? "text-ivory" : "text-primary"}`}>{title}</h2>
-      <Ornament className="mt-3" />
+      <div className={`mx-auto mt-4 h-px w-10 ${light ? "bg-ivory" : "bg-foreground"}`} />
     </div>
   );
 }

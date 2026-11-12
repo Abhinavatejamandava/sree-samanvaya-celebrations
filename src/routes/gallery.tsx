@@ -7,6 +7,8 @@ import { SectionTitle } from "@/components/site/Ornament";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Gallery & Portfolio — Sree Samanvaya Events" },
       { name: "description", content: "A showcase of our finest event decor, styling and unforgettable celebrations." },
       { property: "og:title", content: "Gallery — Sree Samanvaya Events" },

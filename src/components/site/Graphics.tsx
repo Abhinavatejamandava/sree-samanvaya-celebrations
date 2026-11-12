@@ -53,8 +53,6 @@ export function Stats() {
   ];
   return (
     <section className="relative overflow-hidden bg-maroon-gradient py-14 text-primary-foreground">
-      <Mandala className="absolute -top-24 -left-24 h-72 w-72 text-gold/20" />
-      <Mandala className="absolute -right-24 -bottom-24 h-72 w-72 text-gold/20" />
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 min-[300px]:grid-cols-2 md:grid-cols-4">
         {items.map((i) => (
           <div key={i.l} className="text-center">

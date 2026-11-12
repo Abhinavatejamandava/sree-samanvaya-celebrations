@@ -8,6 +8,8 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Our Services — Sree Samanvaya Events" },
       { name: "description", content: "Seemantham, Haldi, Pelli Kuthuru, weddings, Sangeeth, Satyanarayana Pooja, baby showers, anniversaries and event consulting." },
       { property: "og:title", content: "Event Decor Services — Sree Samanvaya" },

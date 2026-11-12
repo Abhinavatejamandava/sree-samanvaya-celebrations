@@ -8,6 +8,8 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/packages")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Packages & Offers — Sree Samanvaya Events" },
       { name: "description", content: "Essential from $499, Premium from $1,499 and Luxury from $2,999 — plus grand launch offers." },
       { property: "og:title", content: "Packages for Every Celebration" },

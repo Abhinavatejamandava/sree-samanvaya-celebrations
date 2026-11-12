@@ -3,11 +3,13 @@ import { SERVICES, svcAt } from "@/lib/services";
 import { PageHero } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
-import mark from "@/assets/logo-mark.png";
+import { Logo } from "@/components/site/Logo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "About Us — Sree Samanvaya Events" },
       { name: "description", content: "Sree Samanvaya blends Indian traditions with modern creativity to style celebrations across NY, NJ, PA and DE." },
       { property: "og:title", content: "About Sree Samanvaya Events" },
@@ -29,7 +31,7 @@ function About() {
       <PageHero title="Our Story" subtitle="Samanvaya means harmony — the beautiful meeting of tradition and modern creativity." image={svcAt(2).image} video={svcAt(2).video} />
       <section className="mandala-bg py-14 sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_2fr]">
-          <Reveal><img src={mark} alt="Sree Samanvaya emblem" width={816} height={816} className="animate-float-soft mx-auto w-40 sm:w-64" /></Reveal>
+          <Reveal><div className="flex min-h-40 items-center justify-center border-y border-border py-10"><Logo /></div></Reveal>
           <Reveal delay={150}>
             <div className="space-y-4 text-sm leading-relaxed sm:text-base">
               <p className="font-display text-2xl italic text-primary sm:text-3xl">Celebrations are how families say "we love you" out loud.</p>

@@ -8,6 +8,8 @@ import { RequestForm } from "@/components/site/RequestForm";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Contact & Book — Sree Samanvaya Events" },
       { name: "description", content: "Request a free quote for your event decor. Serving NY, NJ, PA and DE." },
       { property: "og:title", content: "Book Your Event — Sree Samanvaya" },

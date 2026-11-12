@@ -4,8 +4,6 @@ import { getService, SERVICES } from "@/lib/services";
 import { ServiceCard } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
-import { Petals } from "@/components/site/Petals";
-import { Mandala } from "@/components/site/Graphics";
 import { RequestForm } from "@/components/site/RequestForm";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -24,6 +22,7 @@ export const Route = createFileRoute("/services/$slug")({
         { property: "og:title", content: `${s.name} — Sree Samanvaya` },
         { property: "og:description", content: s.tagline },
         { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
     };
   },
@@ -38,14 +37,14 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServicePage() {
   const { slug } = Route.useLoaderData();
-  const s = getService(slug)!;
+  const s = getService(slug);
+  if (!s) return null;
   const others = SERVICES.filter((o) => o.slug !== s.slug).slice(0, 3);
   return (
     <>
       <section className="relative isolate overflow-hidden">
         <video key={s.video} src={s.video} poster={s.image} autoPlay muted loop playsInline className="absolute inset-0 -z-20 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-hero-fade" />
-        <Petals />
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-32">
           <p className="font-accent text-[0.6rem] tracking-[0.3em] text-gold-soft uppercase sm:text-xs">{s.subtitle}</p>
           <h1 className="fluid-h1 mt-3 max-w-3xl font-semibold tracking-tight break-words text-ivory">{s.name}</h1>
@@ -75,7 +74,6 @@ function ServicePage() {
       </section>
 
       <section className="relative overflow-hidden bg-maroon-gradient py-14 text-primary-foreground sm:py-20">
-        <Mandala className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 text-gold/15" />
         <SectionTitle eyebrow="Thoughtfully included" title="What We Create For You" light />
         <ul className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-3 px-4 sm:grid-cols-2 sm:px-6">
           {s.includes.map((it, i) => (
