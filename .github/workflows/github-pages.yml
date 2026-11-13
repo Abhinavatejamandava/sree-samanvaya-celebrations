@@ -1,0 +1,62 @@
+name: Publish website to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAGES: "true"
+      VITE_GITHUB_PAGES: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3.10"
+      - name: Set repository URL
+        shell: bash
+        run: |
+          repository="${GITHUB_REPOSITORY#*/}"
+          if [[ "$repository" == *.github.io ]]; then
+            echo "VITE_SITE_BASE=/" >> "$GITHUB_ENV"
+          else
+            echo "VITE_SITE_BASE=/$repository/" >> "$GITHUB_ENV"
+          fi
+      - uses: actions/configure-pages@v5
+      - run: bun install --frozen-lockfile
+      - run: bun run test
+      - name: Include all service videos
+        run: node scripts/prepare-github-pages.mjs
+      - name: Build static website
+        run: bun run build
+      - name: Verify every page and video export
+        run: node scripts/verify-github-pages.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

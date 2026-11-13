@@ -4,13 +4,18 @@ import { CheckCircle2, Send } from "lucide-react";
 import { submitServiceRequest } from "@/lib/requests.functions";
 import { requestSchema } from "@/lib/request-schema";
 import { SERVICES, svcAt } from "@/lib/services";
+import { requestEmailUrl } from "@/lib/request-email";
+import { Button } from "@/components/ui/button";
+
+const emailMode = import.meta.env['VITE_GITHUB_PAGES'] === "true";
 
 const field = "w-full min-w-0 rounded-xl border border-input bg-card px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-ring/40";
 const label = "mb-1 block text-xs font-bold tracking-wide text-primary uppercase";
 
 export function RequestForm({ service }: { service?: string }) {
   const submit = useServerFn(submitServiceRequest);
-  const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "draft">("idle");
+  const [emailUrl, setEmailUrl] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [serverError, setServerError] = useState("");
 
@@ -26,6 +31,13 @@ export function RequestForm({ service }: { service?: string }) {
     }
     setErrors({});
     setServerError("");
+    if (emailMode) {
+      const url = requestEmailUrl(parsed.data);
+      setEmailUrl(url);
+      setStatus("draft");
+      window.location.href = url;
+      return;
+    }
     setStatus("sending");
     try {
       await submit({ data: parsed.data });
@@ -36,13 +48,14 @@ export function RequestForm({ service }: { service?: string }) {
     }
   }
 
-  if (status === "done") {
+  if (status === "done" || status === "draft") {
     return (
       <div className="rounded-2xl border border-gold/50 bg-card p-6 text-center shadow-card sm:p-10">
         <CheckCircle2 className="mx-auto h-12 w-12 text-gold" />
-        <h3 className="mt-3 font-display text-2xl font-bold text-primary sm:text-3xl">Thank you!</h3>
-        <p className="mt-2 text-sm text-muted-foreground">Your request has reached our team. We'll contact you within 24–48 hours to start planning your celebration.</p>
-        <button onClick={() => setStatus("idle")} className="mt-5 text-sm font-bold text-primary underline">Send another request</button>
+        <h3 className="mt-3 font-display text-2xl font-bold text-primary sm:text-3xl">{status === "draft" ? "Your email draft is ready" : "Thank you!"}</h3>
+        <p className="mt-2 text-sm text-muted-foreground">{status === "draft" ? "Your request has not been sent yet. Send the draft in your email app to celebrate@sreesamanvaya.com, or call +1 845 309 9344." : "Your request has reached our team. We'll contact you within 24–48 hours to start planning your celebration."}</p>
+        {status === "draft" && <Button asChild variant="outline" className="mt-4"><a href={emailUrl}>Open email draft</a></Button>}
+        <Button variant="link" onClick={() => setStatus("idle")} className="mt-5">{status === "draft" ? "Edit request" : "Send another request"}</Button>
       </div>
     );
   }
@@ -82,9 +95,10 @@ export function RequestForm({ service }: { service?: string }) {
         <textarea id="message" name="message" rows={4} maxLength={2000} className={field} placeholder="Theme, colours, venue, anything you imagine…" />
       </div>
       {serverError && <p className="text-sm text-destructive sm:col-span-2">{serverError}</p>}
-      <button type="submit" disabled={status === "sending"} className="inline-flex items-center justify-center gap-2 rounded-full bg-maroon-gradient px-6 py-3 font-bold text-primary-foreground shadow-card transition hover:scale-[1.02] disabled:opacity-60 sm:col-span-2">
-        <Send className="h-4 w-4" />{status === "sending" ? "Sending…" : "Send My Request"}
-      </button>
+      {emailMode && <p className="text-sm text-muted-foreground sm:col-span-2">Send your enquiry through your email app, or call +1 845 309 9344.</p>}
+      <Button type="submit" disabled={status === "sending"} className="h-auto whitespace-normal rounded-full bg-maroon-gradient px-6 py-3 font-bold text-primary-foreground shadow-card sm:col-span-2">
+        <Send className="h-4 w-4" />{status === "sending" ? "Sending…" : emailMode ? "Prepare Email Request" : "Send My Request"}
+      </Button>
     </form>
   );
 }

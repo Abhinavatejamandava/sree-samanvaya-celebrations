@@ -1,5 +1,26 @@
 # Sree Samanvaya Celebrations
 
+## Host on GitHub Pages
+
+The included `.github/workflows/github-pages.yml` builds and publishes the website, including all 15 service pages and their videos.
+
+1. In the GitHub repository, open **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **GitHub Actions** (not “Deploy from a branch”).
+3. Open **Actions → Publish website to GitHub Pages → Run workflow**, choosing `main`. Future pushes to `main` deploy automatically.
+4. After the deployment succeeds, visit **https://abhinavatejamandava.github.io/sree-samanvaya-celebrations/**.
+
+If the connected branch is not `main`, update the workflow's `push.branches` to that branch and run the workflow from it. GitHub Actions and Pages must be enabled for the repository; private-repository Pages availability depends on the GitHub plan.
+
+### Enquiries on GitHub Pages
+
+GitHub Pages does not run a server. The form validates the visitor's details and prepares an email addressed to **celebrate@sreesamanvaya.com**, including their service, contact details, date, location, guest count, budget and message. The visitor must send that email in their email app. The website does **not** claim the request was delivered or save it to the database in this mode. Automatic delivery would need a separately hosted form service.
+
+### Videos and builds
+
+Before building, the workflow downloads the existing video assets into its temporary checkout and changes that checkout's media links to repository-relative URLs. Only the finished `dist/client` website is deployed; the videos are not committed into Git. The workflow fails instead of publishing broken video links if a download is unavailable. `ASSET_SOURCE_ORIGIN` can be set on the video-export step to another accessible project origin if needed. GitHub serves the copied videos after deployment and does not require Lovable hosting to play them.
+
+The workflow runs tests, prerenders every public page, verifies the output, and disables Jekyll processing. No private backend keys are needed for static hosting. The ordinary development preview remains unchanged.
+
 based on these create a stunning website and create a logo as well based on indian traditions and it should animations and real ai videos for all these services when the users want any service they can send request about that service and the request is sent to celebrate@sreesamanvaya.com along with their details.
 
 make sure every service has its own page and include best content, emotionally and inspirational for the users and they should be attracted to choose them.

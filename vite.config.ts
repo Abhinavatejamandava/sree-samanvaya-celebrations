@@ -8,11 +8,24 @@
 // hosting already compresses at the edge.
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { readFileSync } from "node:fs";
+import { normalizeBasePath, staticPagePaths } from "./scripts/github-pages-config";
+
+const githubPages = process.env['GITHUB_PAGES'] === "true";
+const base = githubPages ? normalizeBasePath(process.env['VITE_SITE_BASE']) : "/";
 
 export default defineConfig({
+  // GitHub serves only dist/client; the server build is used to prerender pages.
+  ...(githubPages ? { nitro: false, vite: { base } } : {}),
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    ...(githubPages ? {
+      router: { basepath: base },
+      pages: staticPagePaths(readFileSync(new URL("./src/lib/services.ts", import.meta.url), "utf8")).map((path) => ({ path })),
+      prerender: { enabled: true, autoStaticPathsDiscovery: false, crawlLinks: false, autoSubfolderIndex: true, failOnError: true },
+      sitemap: { enabled: false },
+    } : {}),
   },
 });

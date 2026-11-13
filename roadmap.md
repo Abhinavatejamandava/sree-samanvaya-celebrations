@@ -13,3 +13,9 @@
 - [x] 8-step "We take care of it" journey per service
 - [x] Market rate comparison per service
 - [x] 15 animated process videos (rendering)
+
+# GitHub Pages hosting
+- [x] Add automatic static publishing for the repository URL and all service pages.
+- [x] Preserve videos and provide an honest email-draft enquiry flow without a hosted server.
+- [x] Test routing, asset paths, and email details; document the GitHub setting needed to go live.
+- [ ] Confirm the first GitHub deployment succeeds (requires the repository owner to enable GitHub Actions as the Pages source).

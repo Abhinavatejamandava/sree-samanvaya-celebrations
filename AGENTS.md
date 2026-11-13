@@ -33,3 +33,5 @@ use the editor.
 - Tailored event steps and meal suggestions live in src/lib/service-experiences.ts and render through the shared service page; this keeps every event's journey consistent without duplicating page templates.
 - ServiceScene renders each service's dedicated video with viewport-aware playback and reduced-motion support; this gives service pages inspectable motion without repeating generic footage.
 - Service process steps and market estimates live in src/lib/service-process.ts; process videos are auto-picked from src/assets/videos/process/<slug>-process.mp4.asset.json so adding a pointer is enough.
+- GitHub Pages uses a build-only static prerender with a repository base path and exported CDN videos; this supports direct links without a running server.
+- Static-host enquiries use validated email drafts and never claim delivery; GitHub Pages cannot execute the existing server function.
