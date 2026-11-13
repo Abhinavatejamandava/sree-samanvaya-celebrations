@@ -16,7 +16,7 @@ export function ServiceProcess({ service }: { service: Service }) {
   return <>
     <section className="border-b border-border py-14 sm:py-20">
       <SectionTitle eyebrow="From first call to final goodbye" title="How We Bring It Together" />
-      {video && <div className="mx-auto mt-10 max-w-4xl px-4 sm:px-6"><video src={video} controls muted playsInline preload="metadata" aria-label={`${service.name} process explained`} className="aspect-video w-full bg-secondary" /></div>}
+      {video && <div className="mx-auto mt-10 max-w-4xl px-4 sm:px-6"><video key={video} src={video} poster={service.image} autoPlay loop muted playsInline preload="auto" controls aria-label={`${service.name} process explained`} className="aspect-video w-full bg-secondary" /></div>}
       <ol className="mx-auto mt-10 max-w-3xl space-y-0 px-4 sm:px-6">
         {steps.map((st, i) => <Reveal key={st.title} delay={i * 50}><li className="relative border-l border-gold/50 pb-8 pl-6 last:pb-0 sm:pl-10">
           <span className="absolute -left-3 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-background text-xs font-semibold text-gold ring-1 ring-gold">{i + 1}</span>
