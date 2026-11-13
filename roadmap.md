@@ -19,3 +19,8 @@
 - [x] Preserve videos and provide an honest email-draft enquiry flow without a hosted server.
 - [x] Test routing, asset paths, and email details; document the GitHub setting needed to go live.
 - [ ] Confirm the first GitHub deployment succeeds (requires the repository owner to enable GitHub Actions as the Pages source).
+
+# Own hosting package
+- [x] Fix static prerender redirect loop (trailing-slash canonical URLs) so all 21 pages export.
+- [x] Build and verify a self-contained static package (pages + all videos) for the user's own hosting.
+- [x] Deliver the uploadable ZIP and confirm videos autoplay and the email-draft enquiry flow works.

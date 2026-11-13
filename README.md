@@ -1,5 +1,17 @@
 # Sree Samanvaya Celebrations
 
+## Host on your own server
+
+The website can be built as a fully static package that works on any static hosting (cPanel, shared hosting, S3, Netlify, etc.):
+
+```sh
+GITHUB_PAGES=true VITE_GITHUB_PAGES=true VITE_SITE_BASE=/ node scripts/prepare-github-pages.mjs
+GITHUB_PAGES=true VITE_GITHUB_PAGES=true VITE_SITE_BASE=/ bun run build
+node scripts/verify-github-pages.mjs
+```
+
+Upload the contents of `dist/client` to your hosting's web root. All pages and videos are included; no server code runs. Enquiry forms prepare an email draft to **celebrate@sreesamanvaya.com** that the visitor sends from their own email app. If you host under a subfolder instead of the domain root, set `VITE_SITE_BASE=/your-subfolder/` before building.
+
 ## Host on GitHub Pages
 
 The included `.github/workflows/github-pages.yml` builds and publishes the website, including all 15 service pages and their videos.
