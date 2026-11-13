@@ -31,3 +31,10 @@ describe("Full event process", () => {
     for (const s of SERVICES) expect(getMarketRate(s.slug)).toBeDefined();
   });
 });
+
+describe("Process footage", () => {
+  it("has a process video for every service", () => {
+    const files = Object.keys(import.meta.glob("../assets/videos/process/*.asset.json"));
+    for (const s of SERVICES) expect(files.some(f => f.endsWith(`/${s.slug}-process.mp4.asset.json`))).toBe(true);
+  });
+});

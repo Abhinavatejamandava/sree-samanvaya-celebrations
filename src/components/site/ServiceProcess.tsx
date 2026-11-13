@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { CheckCircle2 } from "lucide-react";
 import type { Service } from "@/lib/services";
 import { getMarketRate, getProcess } from "@/lib/service-process";
@@ -16,7 +17,7 @@ export function ServiceProcess({ service }: { service: Service }) {
   return <>
     <section className="border-b border-border py-14 sm:py-20">
       <SectionTitle eyebrow="From first call to final goodbye" title="How We Bring It Together" />
-      {video && <div className="mx-auto mt-10 max-w-4xl px-4 sm:px-6"><video key={video} src={video} poster={service.image} autoPlay loop muted playsInline preload="auto" controls aria-label={`${service.name} process explained`} className="aspect-video w-full bg-secondary" /></div>}
+      {video && <div className="mx-auto mt-10 max-w-4xl px-4 sm:px-6"><LoopVideo key={video} src={video} poster={service.image} autoPlay loop muted playsInline preload="auto" controls aria-label={`${service.name} process explained`} className="aspect-video w-full bg-secondary" /></div>}
       <ol className="mx-auto mt-10 max-w-3xl space-y-0 px-4 sm:px-6">
         {steps.map((st, i) => <Reveal key={st.title} delay={i * 50}><li className="relative border-l border-gold/50 pb-8 pl-6 last:pb-0 sm:pl-10">
           <span className="absolute -left-3 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-background text-xs font-semibold text-gold ring-1 ring-gold">{i + 1}</span>
@@ -35,4 +36,16 @@ export function ServiceProcess({ service }: { service: Service }) {
       <p className="mx-auto mt-4 max-w-3xl px-4 text-xs text-muted-foreground sm:px-6">Market figures are estimates from 2025–26 public price guides for NY, NJ, PA and DE and vary by date, venue and guest count.</p>
     </section>}
   </>;
+}
+
+function LoopVideo(props: React.VideoHTMLAttributes<HTMLVideoElement>) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = true;
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) void v.play().catch(() => {});
+    return () => v.pause();
+  }, [props.src]);
+  return <video ref={ref} {...props} />;
 }
