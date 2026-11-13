@@ -502,7 +502,7 @@ export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug
 
 export const CONTACT = {
   email: "celebrate@sreesamanvaya.com",
-  phone: "+1 (XXX) XXX-XXXX",
+  phone: "+1 845 309 9344",
   areas: "NY | NJ | PA | DE",
 };
 export const svcAt = (i: number): Service => {
