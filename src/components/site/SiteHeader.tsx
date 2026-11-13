@@ -58,7 +58,7 @@ export function SiteHeader() {
           ))}
         </nav>
       )}
-      <nav aria-label="Celebrations" className="flex gap-7 overflow-x-auto border-t border-border px-4 py-3 text-xs text-muted-foreground sm:justify-center sm:px-8">
+      <nav aria-label="Celebrations" className="flex gap-7 overflow-x-auto border-t border-border px-4 py-3 text-xs text-muted-foreground sm:px-8 min-[1400px]:justify-center">
         {[
           { slug: "wedding", label: "Weddings" },
           { slug: "haldi", label: "Haldi & Sangeeth" },
@@ -66,6 +66,8 @@ export function SiteHeader() {
           { slug: "catering", label: "Catering" },
           { slug: "photography", label: "Photography" },
           { slug: "event-planning", label: "Event Planning" },
+          { slug: "family-gathering", label: "Family Gatherings" },
+          { slug: "family-getaway", label: "Family Getaways" },
         ].map((item) => <Link key={item.slug} to="/services/$slug" params={{ slug: item.slug }} className="shrink-0 hover:text-foreground">{item.label}</Link>)}
       </nav>
     </header>

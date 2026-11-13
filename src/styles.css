@@ -106,6 +106,16 @@
 .wordmark { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .3em; line-height: 1; font-size: 1.25rem; }
 .wordmark-sree { font-weight: 700; }
 .wordmark-name { font-family: var(--font-wordmark); font-style: italic; font-size: 1.35em; font-weight: 600; }
+.brand-logo { display: flex; align-items: center; gap: .65rem; }
+.brand-symbol { width: 38px; height: 50px; object-fit: contain; flex-shrink: 0; }
+.event-step { position: relative; min-width: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+.event-step-symbol { display: flex; width: 3rem; height: 3rem; align-items: center; justify-content: center; background: var(--secondary); color: var(--gold); border-radius: 50%; }
+.event-step:hover .event-step-symbol { transform: translateY(-4px); transition: transform .25s ease; }
+@media (max-width: 280px) {
+  .brand-logo { gap: .35rem; }
+  .brand-symbol { width: 23px; height: 36px; }
+  .brand-logo .wordmark { font-size: .8rem; }
+}
 .hero-home { min-height: 400px; }
 .hero-title { font-size: 2.25rem; line-height: 1.1; }
 .discovery { display: grid; grid-template-columns: 1fr; }
@@ -157,4 +167,5 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .animate-petal, .animate-flicker, .animate-float-soft, .animate-shimmer, .animate-spin-slow, .animate-marquee, .animate-glow { animation: none !important; }
   html { scroll-behavior: auto; }
+  .event-step:hover .event-step-symbol { transform: none; transition: none; }
 }

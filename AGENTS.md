@@ -30,3 +30,4 @@ use the editor.
 <!-- LOVABLE:END -->
 - Service content lives in src/lib/services.ts and drives /services/$slug pages; add services there, not as new route files. Why: one template keeps every service page consistent.
 - Shared editorial styling and responsive wordmark rules live in src/styles.css; the logo name is rendered as text in Logo.tsx so it stays crisp at every size.
+- Tailored event steps and meal suggestions live in src/lib/service-experiences.ts and render through the shared service page; this keeps every event's journey consistent without duplicating page templates.

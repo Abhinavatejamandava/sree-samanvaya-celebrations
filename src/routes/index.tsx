@@ -30,7 +30,7 @@ function Home() {
   const [service, setService] = useState("wedding");
   const [area, setArea] = useState("");
   const navigate = useNavigate();
-  const hero = svcAt(3);
+  const hero = getService("wedding") ?? svcAt(3);
   const featured = SERVICES.filter(s => ["wedding", "seemantham", "haldi", "sangeeth"].includes(s.slug));
   return <>
     <section className="hero-home relative isolate flex items-center justify-center overflow-hidden">
@@ -70,6 +70,12 @@ function Home() {
         <Reveal><img src={svcAt(0).image} alt="Traditional floral celebration setting" loading="lazy" className="aspect-[4/3] w-full object-cover" /></Reveal>
         <Reveal delay={100}><p className="text-xs uppercase text-gold">Rooted in tradition. Designed for you.</p><h2 className="fluid-h2 mt-4 font-semibold">A little closer to home.<br />A memory to last a lifetime.</h2><p className="mt-5 text-sm leading-relaxed text-muted-foreground">The jasmine. The warm glow of a diya. The joy of gathering everyone you love. We bring Indian traditions and contemporary style together, creating spaces where every ritual feels meaningful and every guest feels welcome.</p><p className="mt-4 text-sm leading-relaxed text-muted-foreground">From the first idea to the final detail, your family's vision is at the heart of the celebration.</p><Button asChild variant="outline" className="mt-6"><Link to="/about">Our Story <ArrowRight /></Link></Button></Reveal>
       </div>
+    </section>
+
+    <section className="border-t border-border py-14 sm:py-20">
+      <SectionTitle eyebrow="More ways to come together" title="Family Time, Beautifully Planned" />
+      <p className="mx-auto mt-3 max-w-xl px-4 text-center text-sm text-muted-foreground">A night of comedy, music and shared food. A weekend away with the people you love.</p>
+      <div className="mx-auto mt-9 grid max-w-6xl gap-8 px-4 sm:grid-cols-2 sm:px-8">{SERVICES.filter(s => ["family-gathering", "family-getaway"].includes(s.slug)).map(s => <Reveal key={s.slug}><ServiceCard s={s} /></Reveal>)}</div>
     </section>
 
     <section className="bg-secondary py-14 sm:py-20">

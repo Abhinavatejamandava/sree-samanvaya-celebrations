@@ -24,6 +24,10 @@ import planVid from "@/assets/videos/event-planning.mp4.asset.json";
 import cateringImg from "@/assets/svc-catering.jpg";
 import cateringVid from "@/assets/videos/catering.mp4.asset.json";
 import consultVid from "@/assets/videos/consulting.mp4.asset.json";
+import gatheringImg from "@/assets/svc-family-gathering.jpg";
+import getawayImg from "@/assets/svc-family-getaway.jpg";
+import gatheringVid from "@/assets/videos/family-gathering.mp4.asset.json";
+import getawayVid from "@/assets/videos/family-getaway.mp4.asset.json";
 
 export type Category = "traditional" | "modern";
 
@@ -42,6 +46,7 @@ export interface Service {
   includes: string[];
   feeling: string;
   faqs: { q: string; a: string }[];
+  offerings?: ("catering" | "comedy" | "live-music" | "drive" | "stay")[];
 }
 
 export const SERVICES: Service[] = [
@@ -449,6 +454,48 @@ export const SERVICES: Service[] = [
       { q: "Do you sell decor wholesale?", a: "Yes, through our importing, exporting and wholesale trade division." },
     ],
   },
+  {
+    slug: "family-gathering", name: "Family Gatherings & Entertainment",
+    subtitle: "Shared Meals · Comedy · Live Music", price: "Custom Quote", category: "modern",
+    image: gatheringImg, video: gatheringVid.url,
+    offerings: ["catering", "comedy", "live-music"],
+    tagline: "A table for everyone. A reason to laugh. A night to remember.",
+    short: "Bring generations together with Indian & American catering, comedy and live music.",
+    meaning: "You don't need a wedding to bring everyone together. A reunion, a holiday dinner or a long-overdue family evening can become the memory everyone carries home.",
+    story: [
+      "The best family gatherings feel effortless: grandparents sharing stories, children making new friends, and cousins picking up exactly where they left off. We shape the setting around those connections.",
+      "Pair a generous Indian and American menu with warm decor, comfortable seating and an evening of laughter. Family-friendly comedy and live music can bring the room together without losing space for conversation.",
+      "Whether your family shares one tradition or many, your celebration belongs to everyone. We discuss languages, musical tastes, cultural preferences and the ages of your guests before building your programme.",
+    ],
+    includes: ["Reunion, holiday and family dinner planning", "Welcoming decor and multigenerational seating", "Indian and American catering options", "Family-friendly comedy programme coordination", "Live music and performance scheduling", "Guest activities, photo moments and evening flow"],
+    feeling: "More laughter, more connection, more time with your people.",
+    faqs: [
+      { q: "Can we choose both comedy and live music?", a: "Yes. Tell us your preferred language, musical style and audience ages. Performers, timing and fees are confirmed in your quote, subject to availability." },
+      { q: "Can the menu reflect different cultures?", a: "Yes. We offer Indian and American catering and discuss dietary preferences so the meal feels welcoming to your guests." },
+      { q: "Can you plan an intimate gathering?", a: "Yes. Share your guest count and venue, and we'll propose a setting and programme that fit the gathering rather than overwhelm it." },
+    ],
+  },
+  {
+    slug: "family-getaway", name: "Family Getaways — Drive & Stay",
+    subtitle: "The Journey · The Stay · Time Together", price: "Custom Quote", category: "modern",
+    image: getawayImg, video: getawayVid.url,
+    offerings: ["catering", "drive", "stay"],
+    tagline: "Take the scenic route back to each other.",
+    short: "Thoughtfully planned family escapes with drive-and-stay arrangements and shared meals.",
+    meaning: "Sometimes the celebration is simply getting away together. A change of scenery makes room for unhurried mornings, shared meals and the conversations everyday life leaves behind.",
+    story: [
+      "Imagine leaving the rush behind and arriving somewhere your whole family can settle in. A lakeside weekend, a countryside retreat or a comfortable group stay becomes a chance to reconnect across generations.",
+      "We help shape the journey as well as the destination: drive arrangements, arrival plans, accommodation preferences and a relaxed itinerary with room for children and elders alike.",
+      "Gather for Indian and American meals, enjoy activities at your family's pace, and leave time for doing nothing at all. Travel, stays, catering and any entertainment are agreed individually before booking.",
+    ],
+    includes: ["Destination and family itinerary planning", "Drive arrangements and travel schedule coordination", "Group accommodation and stay coordination", "Indian and American meal planning", "Family activities and shared celebration moments", "Arrival, rooming and departure coordination"],
+    feeling: "A little distance from routine. A little closer to family.",
+    faqs: [
+      { q: "What does drive and stay include?", a: "We coordinate a proposed journey and accommodation plan. Vehicle or self-drive arrangements, rooms, meals and costs are itemised in your quote; nothing is assumed to be included." },
+      { q: "Can you accommodate children and older relatives?", a: "Tell us about mobility needs, room preferences, travel comfort and children's ages so we can discuss suitable options with the destination and accommodation providers." },
+      { q: "Are destinations and dates guaranteed?", a: "No. Stays, transport and activities depend on availability. We confirm the itinerary, provider terms and cancellation conditions before you commit." },
+    ],
+  },
 ];
 
 export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug);
@@ -458,4 +505,8 @@ export const CONTACT = {
   phone: "+1 (XXX) XXX-XXXX",
   areas: "NY | NJ | PA | DE",
 };
-export const svcAt = (i: number): Service => SERVICES[i]!;
+export const svcAt = (i: number): Service => {
+  const service = SERVICES[i];
+  if (!service) throw new Error(`Unknown service index: ${i}`);
+  return service;
+};
