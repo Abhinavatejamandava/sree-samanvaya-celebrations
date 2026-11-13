@@ -22,3 +22,12 @@ describe("Celebration offerings", () => {
     expect(new Set(SERVICES.map(service => service.video)).size).toBe(SERVICES.length);
   });
 });
+import { getMarketRate, getProcess } from "@/lib/service-process";
+describe("Full event process", () => {
+  it("gives every service eight steps, each saying what we take care of", () => {
+    for (const s of SERVICES) { const p = getProcess(s.slug); expect(p).toHaveLength(8); p.forEach(st => expect(st.care.length).toBeGreaterThan(0)); }
+  });
+  it("shows a market comparison for every service", () => {
+    for (const s of SERVICES) expect(getMarketRate(s.slug)).toBeDefined();
+  });
+});

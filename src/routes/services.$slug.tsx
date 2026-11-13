@@ -8,6 +8,7 @@ import { RequestForm } from "@/components/site/RequestForm";
 import { ServiceExperience } from "@/components/site/ServiceExperience";
 import { Button } from "@/components/ui/button";
 import { ServiceScene } from "@/components/site/ServiceScene";
+import { ServiceProcess } from "@/components/site/ServiceProcess";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -90,6 +91,7 @@ function ServicePage() {
         </p>
       </section>
 
+      <ServiceProcess service={s} />
       <ServiceExperience service={s} />
 
       <section className="py-14 sm:py-20">

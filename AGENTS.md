@@ -32,3 +32,4 @@ use the editor.
 - Shared editorial styling and responsive wordmark rules live in src/styles.css; the logo name is rendered as text in Logo.tsx so it stays crisp at every size.
 - Tailored event steps and meal suggestions live in src/lib/service-experiences.ts and render through the shared service page; this keeps every event's journey consistent without duplicating page templates.
 - ServiceScene renders each service's dedicated video with viewport-aware playback and reduced-motion support; this gives service pages inspectable motion without repeating generic footage.
+- Service process steps and market estimates live in src/lib/service-process.ts; process videos are auto-picked from src/assets/videos/process/<slug>-process.mp4.asset.json so adding a pointer is enough.
