@@ -1,5 +1,5 @@
 export type EventStep = { title: string; text: string };
-export type ServiceExperience = { steps: EventStep[]; menu: string; detail: string };
+export type ServiceExperience = { steps: EventStep[]; menu: string; detail: string; showCatering: boolean; showFoodImage: boolean };
 
 const journeys: Record<string, [string, string, string, string]> = {
   seemantham: ["Listen to your traditions", "Style the blessing space", "Welcome family with a meal", "Enjoy every blessing"],
@@ -11,10 +11,10 @@ const journeys: Record<string, [string, string, string, string]> = {
   "indian-baby-shower": ["Share your family's customs", "Design a gentle floral setting", "Choose a welcoming menu", "Celebrate the new chapter"],
   "american-baby-shower": ["Choose a personal theme", "Plan games and photo moments", "Build a playful party menu", "Shower the family with love"],
   anniversary: ["Revisit your love story", "Style meaningful memories", "Plan dinner and toasts", "Celebrate the years together"],
-  "event-planning": ["Define the vision and budget", "Align venue and providers", "Connect catering and timings", "Bring the whole day together"],
+  "event-planning": ["Define the vision and budget", "Align venue and providers", "Build the event timeline", "Bring the whole day together"],
   photography: ["Share the moments that matter", "Plan light and ceremony coverage", "Coordinate with the event team", "Preserve your family's story"],
   catering: ["Tell us who is gathering", "Shape your Indian & American menu", "Confirm service and dietary needs", "Serve a memorable celebration"],
-  "event-consulting": ["Explore your inspiration", "Create the concept and layout", "Connect decor with dining", "Style the finishing touches"],
+  "event-consulting": ["Explore your inspiration", "Create the concept and layout", "Select florals and installations", "Style the finishing touches"],
   "family-gathering": ["Bring your people together", "Choose comedy and live music", "Curate a meal for everyone", "Laugh, connect and celebrate"],
   "family-getaway": ["Choose your escape", "Coordinate the drive and stay", "Plan meals and shared activities", "Arrive, unwind and reconnect"],
 };
@@ -38,14 +38,23 @@ const menus: Record<string, string> = {
 };
 
 export function getServiceExperience(slug: string): ServiceExperience {
+  const showCatering = !["photography", "event-planning", "event-consulting"].includes(slug);
   const titles = journeys[slug] ?? ["Share your vision", "Shape the details", "Plan the meal", "Enjoy your celebration"];
   const details = [
     "Tell us your guest count, occasion, cultural preferences and the details that matter most to your family.",
     "Review a personalised proposal. We agree the setting, schedule, selected arrangements and costs before booking.",
-    "Choose the menu or supporting services you want. Dietary requests, availability and service details are confirmed with the team.",
+    showCatering
+      ? "Choose the menu or supporting services you want. Dietary requests, availability and service details are confirmed with the team."
+      : slug === "photography"
+        ? "Agree your priority photographs, ceremony timings and coverage with the photographer so each meaningful moment has its place."
+        : slug === "event-consulting"
+          ? "Review flowers, balloons, materials and installation details against your venue and chosen concept."
+          : "Agree the schedule, provider responsibilities and guest flow so the day runs as one coordinated celebration.",
     "With the agreed plan in place, make room for the people, conversations and moments you came together for.",
   ];
   return {
+    showCatering,
+    showFoodImage: slug === "catering",
     steps: titles.map((title, index) => ({ title, text: details[index] ?? details[0] ?? "" })),
     menu: menus[slug] ?? "Indian and American catering can be arranged alongside your celebration.",
     detail: "Catering and additional services are quoted separately unless expressly included in your chosen package. Share allergies and dietary needs so we can confirm suitable options; allergen-free preparation is not assumed.",

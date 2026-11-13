@@ -7,6 +7,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { RequestForm } from "@/components/site/RequestForm";
 import { ServiceExperience } from "@/components/site/ServiceExperience";
 import { Button } from "@/components/ui/button";
+import { ServiceScene } from "@/components/site/ServiceScene";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -68,9 +69,7 @@ function ServicePage() {
             </div>
           </Reveal>
           <Reveal delay={150}>
-            <div className="overflow-hidden">
-              <img src={s.image} alt={`${s.name} by Sree Samanvaya`} loading="lazy" width={1536} height={864} className="w-full object-cover" />
-            </div>
+            <ServiceScene key={s.slug} service={s} />
           </Reveal>
         </div>
       </section>

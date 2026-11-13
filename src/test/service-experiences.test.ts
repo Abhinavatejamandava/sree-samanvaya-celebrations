@@ -12,4 +12,13 @@ describe("Celebration offerings", () => {
   it("provides a four-step journey for every service", () => {
     for (const service of SERVICES) expect(getServiceExperience(service.slug).steps).toHaveLength(4);
   });
+  it.each(["photography", "event-planning", "event-consulting"])("omits catering content for %s", slug => {
+    expect(getServiceExperience(slug).showCatering).toBe(false);
+  });
+  it("limits food imagery to the catering service", () => {
+    expect(SERVICES.filter(service => getServiceExperience(service.slug).showFoodImage).map(service => service.slug)).toEqual(["catering"]);
+  });
+  it("uses a distinct animated video for every service", () => {
+    expect(new Set(SERVICES.map(service => service.video)).size).toBe(SERVICES.length);
+  });
 });
