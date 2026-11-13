@@ -12,4 +12,4 @@
 # Process, pricing and steps
 - [x] 8-step "We take care of it" journey per service
 - [x] Market rate comparison per service
-- [ ] 15 animated process videos (rendering)
+- [x] 15 animated process videos (rendering)
