@@ -39,7 +39,7 @@ function Gallery() {
         </div>
         <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-4 px-3 min-[420px]:grid-cols-2 sm:px-6 lg:grid-cols-3">
           {items.map((s) => (
-            <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group relative block overflow-hidden rounded-2xl border border-gold/40 shadow-card">
+            <Link key={s.slug} to="/services/$slug/" params={{ slug: s.slug }} className="group relative block overflow-hidden rounded-2xl border border-gold/40 shadow-card">
               <video src={s.video} poster={s.image} muted loop playsInline preload="none"
                 onMouseEnter={(e) => e.currentTarget.play().catch(() => {})}
                 onMouseLeave={(e) => e.currentTarget.pause()}

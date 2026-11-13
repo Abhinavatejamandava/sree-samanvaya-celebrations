@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button";
 
 const NAV = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/packages", label: "Packages" },
-  { to: "/contact", label: "Contact" },
+  { to: "/about/", label: "About" },
+  { to: "/services/", label: "Services" },
+  { to: "/gallery/", label: "Gallery" },
+  { to: "/packages/", label: "Packages" },
+  { to: "/contact/", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -31,7 +31,7 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
-          <Button asChild className="ml-4"><Link to="/contact">Plan Your Event</Link></Button>
+          <Button asChild className="ml-4"><Link to="/contact/">Plan Your Event</Link></Button>
         </nav>
         <Button variant="ghost" size="icon"
           className="shrink-0 lg:hidden"
@@ -68,7 +68,7 @@ export function SiteHeader() {
           { slug: "event-planning", label: "Event Planning" },
           { slug: "family-gathering", label: "Family Gatherings" },
           { slug: "family-getaway", label: "Family Getaways" },
-        ].map((item) => <Link key={item.slug} to="/services/$slug" params={{ slug: item.slug }} className="shrink-0 hover:text-foreground">{item.label}</Link>)}
+        ].map((item) => <Link key={item.slug} to="/services/$slug/" params={{ slug: item.slug }} className="shrink-0 hover:text-foreground">{item.label}</Link>)}
       </nav>
     </header>
   );

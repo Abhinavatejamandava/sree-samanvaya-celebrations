@@ -16,7 +16,7 @@ export function SiteFooter() {
           <h3 className="font-display text-xl font-bold text-foreground">Services</h3>
           <ul className="mt-3 space-y-1 text-sm">
             {SERVICES.slice(0, 8).map((s) => (
-              <li key={s.slug}><Link to="/services/$slug" params={{ slug: s.slug }} className="opacity-90 hover:text-foreground">{s.name}</Link></li>
+              <li key={s.slug}><Link to="/services/$slug/" params={{ slug: s.slug }} className="opacity-90 hover:text-foreground">{s.name}</Link></li>
             ))}
           </ul>
         </div>
@@ -31,7 +31,7 @@ export function SiteFooter() {
         <div className="min-w-0">
           <h3 className="font-display text-xl font-bold text-foreground">Let's Celebrate</h3>
           <p className="mt-3 text-sm opacity-90">Tell us about your event and receive a personalised concept and quote.</p>
-          <Button asChild className="mt-4"><Link to="/contact">Book a Consultation</Link></Button>
+          <Button asChild className="mt-4"><Link to="/contact/">Book a Consultation</Link></Button>
         </div>
       </div>
       <div className="border-t border-border px-4 py-4 text-center text-xs opacity-80">© {new Date().getFullYear()} Sree Samanvaya Groups LLC · Events</div>

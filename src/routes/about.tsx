@@ -54,7 +54,7 @@ function About() {
             </Reveal>
           ))}
         </div>
-        <div className="mt-10 text-center"><Link to="/contact" className="rounded-full bg-gold-gradient px-6 py-3 font-bold text-maroon-deep">Plan With Us</Link></div>
+        <div className="mt-10 text-center"><Link to="/contact/" className="rounded-full bg-gold-gradient px-6 py-3 font-bold text-maroon-deep">Plan With Us</Link></div>
       </section>
     </>
   );

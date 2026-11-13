@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 export function ServiceCard({ s }: { s: Service }) {
   return (
     <Link
-      to="/services/$slug"
+      to="/services/$slug/"
       params={{ slug: s.slug }}
       className="group block min-w-0 bg-background"
     >

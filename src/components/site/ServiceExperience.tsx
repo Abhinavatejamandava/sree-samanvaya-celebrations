@@ -31,7 +31,7 @@ export function ServiceExperience({ service }: { service: Service }) {
           <p className="mt-4 text-sm leading-relaxed text-foreground">{experience.menu}</p>
           <div className="mt-5 grid grid-cols-2 gap-4 border-y border-border py-5"><div><h3 className="font-semibold">Indian cuisines</h3><p className="mt-2 text-xs leading-relaxed text-muted-foreground">Regional flavours and family favourites.</p></div><div><h3 className="font-semibold">American favourites</h3><p className="mt-2 text-xs leading-relaxed text-muted-foreground">Welcoming menus for a shared celebration.</p></div></div>
           <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{experience.detail}</p>
-          {service.slug !== "catering" && <Button asChild variant="outline" className="mt-6"><Link to="/services/$slug" params={{ slug: "catering" }}>Explore Catering <ArrowRight /></Link></Button>}
+          {service.slug !== "catering" && <Button asChild variant="outline" className="mt-6"><Link to="/services/$slug/" params={{ slug: "catering" }}>Explore Catering <ArrowRight /></Link></Button>}
         </Reveal>
       </div>
     </section>}

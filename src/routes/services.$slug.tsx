@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/$slug")({
   notFoundComponent: () => (
     <div className="py-24 text-center">
       <h1 className="font-display text-3xl text-primary">Service not found</h1>
-      <Link to="/services" className="mt-4 inline-block text-primary underline">See all services</Link>
+      <Link to="/services/" className="mt-4 inline-block text-primary underline">See all services</Link>
     </div>
   ),
 });

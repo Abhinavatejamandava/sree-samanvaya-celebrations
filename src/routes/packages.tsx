@@ -48,7 +48,7 @@ function Packages() {
                 <ul className="mt-5 space-y-2 text-sm">
                   {p.items.map((it) => <li key={it} className="flex gap-2"><Check className="h-4 w-4 shrink-0 text-gold" />{it}</li>)}
                 </ul>
-                <Link to="/contact" className={`mt-6 block rounded-full px-5 py-2.5 text-center font-bold ${p.popular ? "bg-gold-gradient text-maroon-deep" : "bg-maroon-gradient text-primary-foreground"}`}>Choose {p.name}</Link>
+                <Link to="/contact/" className={`mt-6 block rounded-full px-5 py-2.5 text-center font-bold ${p.popular ? "bg-gold-gradient text-maroon-deep" : "bg-maroon-gradient text-primary-foreground"}`}>Choose {p.name}</Link>
               </div>
             </Reveal>
           ))}
