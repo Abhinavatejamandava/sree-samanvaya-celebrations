@@ -2,6 +2,10 @@ export type ProcessStep = { title: string; text: string; care: string };
 export type MarketRate = { market: string; basis: string; note: string };
 
 const SPECIFIC: Record<string, [ProcessStep, ProcessStep]> = {
+  "balloon-parties": [
+    { title: "Balloon design & site check", text: "We confirm colours, sizes, backdrop dimensions, venue access and suitable installation points.", care: "We plan the balloon combinations and review the space with you." },
+    { title: "Assembly & finishing touches", text: "Balloon clusters, arches and garlands are assembled and checked before guests arrive.", care: "We install the agreed design, style the photo area and inspect the setup." },
+  ],
   seemantham: [
     { title: "Muhurtham & priest coordination", text: "We align the ceremony time with your family's chosen muhurtham and the priest's requirements.", care: "We coordinate timings, ritual items and arrival order." },
     { title: "Blessing stage & bangle ceremony", text: "A comfortable, floral seat for the mother-to-be, with space for elders to offer bangles and blessings.", care: "We set up seating, bangle trays and floral styling." },
@@ -82,6 +86,7 @@ export function getProcess(slug: string): ProcessStep[] {
 
 /** Estimated typical NY/NJ/PA/DE ranges from 2025-26 public price guides; not quotes. */
 const RATES: Record<string, MarketRate> = {
+  "balloon-parties": { market: "Quoted by installation", basis: "balloon party décor", note: "Compare like-for-like proposals for balloon size, backdrop, delivery, installation and teardown. No verified local price range is available for this new service." },
   seemantham: { market: "$700 – $1,800", basis: "décor & styling", note: "Floral stage and ritual setup by independent decorators." },
   haldi: { market: "$650 – $1,500", basis: "décor & styling", note: "Marigold backdrops and seating set-ups." },
   "pelli-kuthuru": { market: "$800 – $2,000", basis: "décor & styling", note: "Bridal seating with floral backdrops." },

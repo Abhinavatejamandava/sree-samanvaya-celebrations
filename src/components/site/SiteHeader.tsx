@@ -68,6 +68,7 @@ export function SiteHeader() {
           { slug: "event-planning", label: "Event Planning" },
           { slug: "family-gathering", label: "Family Gatherings" },
           { slug: "family-getaway", label: "Family Getaways" },
+          { slug: "balloon-parties", label: "Balloon Parties" },
         ].map((item) => <Link key={item.slug} to="/services/$slug/" params={{ slug: item.slug }} className="shrink-0 hover:text-foreground">{item.label}</Link>)}
       </nav>
     </header>

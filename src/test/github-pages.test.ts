@@ -23,7 +23,7 @@ describe("GitHub Pages hosting", () => {
   });
   it("exports every current public service page", () => {
     const paths = staticPagePaths(readFileSync("src/lib/services.ts", "utf8"));
-    expect(paths).toHaveLength(21);
+    expect(paths).toHaveLength(22);
     for (const service of SERVICES) expect(paths).toContain(`/services/${service.slug}`);
   });
   it("addresses requests to the business and includes all visitor details", () => {

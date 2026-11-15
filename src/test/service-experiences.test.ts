@@ -34,14 +34,14 @@ describe("Full event process", () => {
 });
 
 describe("Process footage", () => {
-  it("provides a separate illustrated background and matching poster for all 15 services", () => {
+  it("provides a separate illustrated background and matching poster for every service", () => {
     const scenes = SERVICES.map(s => getCelebrationScene(s.slug));
-    expect(scenes).toHaveLength(15);
+    expect(scenes).toHaveLength(SERVICES.length);
     for (const scene of scenes) {
       expect(scene?.video).toBeTruthy();
       expect(scene?.poster).toBeTruthy();
     }
-    expect(new Set(scenes.map(scene => scene?.video)).size).toBe(15);
+    expect(new Set(scenes.map(scene => scene?.video)).size).toBe(SERVICES.length);
   });
   it("has a process video for every service", () => {
     const files = Object.keys(import.meta.glob("../assets/videos/process/*.asset.json"));

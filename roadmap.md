@@ -1,3 +1,8 @@
+# Name, mobile and balloon parties
+- [x] Update the business name and mobile number throughout the website; use uniform logo lettering.
+- [x] Add balloon parties with dedicated imagery, animation and service details.
+- [x] Verify contact details, balloon enquiries and mobile layouts.
+
 # Service and logo refresh
 - [x] Enrich every service with tailored event steps and catering options.
 - [x] Add family gatherings with comedy and live music, and drive-and-stay family getaways.

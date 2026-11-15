@@ -11,9 +11,9 @@ import { CelebrationBackground } from "@/components/site/CelebrationBackground";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "Sree Samanvaya — Weddings, Celebrations & Event Services" },
-    { name: "description", content: "Explore Indian and American celebrations, event decor, planning, catering and photography with Sree Samanvaya across NY, NJ, PA and DE." },
-    { property: "og:title", content: "Sree Samanvaya — Beautiful Celebrations Start Here" },
+    { title: "Sree Samanvaya Events and Decor — Weddings, Celebrations & Event Services" },
+    { name: "description", content: "Explore Indian and American celebrations, event decor, planning, catering and photography with Sree Samanvaya Events and Decor across NY, NJ, PA and DE." },
+    { property: "og:title", content: "Sree Samanvaya Events and Decor — Beautiful Celebrations Start Here" },
     { property: "og:description", content: "Discover thoughtful decor, planning, catering and photography for your next celebration." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
@@ -34,14 +34,14 @@ function Home() {
   const navigate = useNavigate();
   const hero = getService("wedding") ?? svcAt(3);
   const scene = getCelebrationScene(hero.slug);
-  const featured = SERVICES.filter(s => ["wedding", "seemantham", "haldi", "sangeeth"].includes(s.slug));
+  const featured = SERVICES.filter(s => ["wedding", "seemantham", "haldi", "sangeeth", "balloon-parties"].includes(s.slug));
   return <>
     <section className="celebration-hero relative isolate overflow-hidden">
       <CelebrationBackground src={scene?.video ?? hero.video} poster={scene?.poster ?? hero.image} label="Animated bride and groom exchanging wedding garlands" />
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-8">
        <div className="celebration-hero-copy">
         <p className="celebration-kicker text-xs font-medium uppercase text-gold-soft">Indian traditions. Every culture welcome.</p>
-        <h1 className="hero-title mt-5 text-ivory">Sree Samanvaya</h1>
+        <h1 className="hero-title mt-5 text-ivory">Sree Samanvaya Events and Decor</h1>
         <p className="mt-4 max-w-xl text-base text-ivory sm:text-xl">Rich in tradition.<br />Beautifully yours.</p>
         <form className="discovery mt-8 max-w-2xl overflow-hidden rounded-sm bg-background text-left shadow-card" onSubmit={e => { e.preventDefault(); void navigate({ to: "/services/$slug/", params: { slug: service } }); }}>
           <label className="border-b border-border px-4 py-3 sm:border-r sm:border-b-0"><span className="mb-1 block text-[0.6rem] uppercase text-muted-foreground">Your celebration</span><select aria-label="Your celebration" value={service} onChange={e => setService(e.target.value)}>{SERVICES.map(s => <option key={s.slug} value={s.slug}>{s.name}</option>)}</select></label>
@@ -51,7 +51,7 @@ function Home() {
        </div>
       </div>
     </section>
-    <div className="celebration-strip px-4 py-4 text-center text-xs">Decor · Planning · Catering · Photography <span className="mx-2 text-gold-soft">/</span> NY · NJ · PA · DE</div>
+    <div className="celebration-strip px-4 py-4 text-center text-xs">Decor · Balloon Parties · Planning · Catering · Photography <span className="mx-2 text-gold-soft">/</span> NY · NJ · PA · DE</div>
 
     <section className="py-14 sm:py-20">
       <SectionTitle title="Celebrations Worth Remembering" />

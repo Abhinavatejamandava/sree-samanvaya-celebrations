@@ -2,6 +2,7 @@ export type EventStep = { title: string; text: string };
 export type ServiceExperience = { steps: EventStep[]; menu: string; detail: string; showCatering: boolean; showFoodImage: boolean };
 
 const journeys: Record<string, [string, string, string, string]> = {
+  "balloon-parties": ["Choose your party theme", "Design the balloon setting", "Plan the party extras", "Celebrate in full colour"],
   seemantham: ["Listen to your traditions", "Style the blessing space", "Welcome family with a meal", "Enjoy every blessing"],
   haldi: ["Choose your colour story", "Plan rituals and guest flow", "Set out a joyful feast", "Celebrate in full colour"],
   "pelli-kuthuru": ["Honour your family's rituals", "Create the bridal setting", "Time the ceremony and meal", "Be present for her moment"],
@@ -20,6 +21,7 @@ const journeys: Record<string, [string, string, string, string]> = {
 };
 
 const menus: Record<string, string> = {
+  "balloon-parties": "Optional Indian and American party bites, child-friendly dishes and shared meals can be discussed alongside your balloon setup.",
   seemantham: "A comforting Indian lunch, favourite family sweets and American dishes for a mixed-culture guest list.",
   haldi: "Light bites, a colourful Indian buffet and easy-to-enjoy American favourites between the festivities.",
   "pelli-kuthuru": "A traditional family meal shaped around your customs, with additional American selections on request.",

@@ -31,7 +31,7 @@ export function ServiceProcess({ service }: { service: Service }) {
       <SectionTitle eyebrow="Honest, transparent value" title="How We Compare" />
       <div className="mx-auto mt-8 grid max-w-3xl gap-4 px-4 sm:grid-cols-2 sm:px-6">
         <div className="border border-border bg-background p-5"><p className="text-xs uppercase text-muted-foreground">Typical market · {rate.basis}</p><p className="mt-2 text-2xl font-semibold break-words">{rate.market}</p><p className="mt-2 text-xs text-muted-foreground">{rate.note}</p></div>
-        <div className="border border-gold bg-background p-5"><p className="text-xs uppercase text-gold">Sree Samanvaya</p><p className="mt-2 text-2xl font-semibold break-words">{service.price}</p><p className="mt-2 text-xs text-muted-foreground">Personalised planning included, plus 15% off your first booking.</p></div>
+        <div className="border border-gold bg-background p-5"><p className="text-xs uppercase text-gold">Sree Samanvaya Events and Decor</p><p className="mt-2 text-2xl font-semibold break-words">{service.price}</p><p className="mt-2 text-xs text-muted-foreground">Personalised planning included, plus 15% off your first booking.</p></div>
       </div>
       <p className="mx-auto mt-4 max-w-3xl px-4 text-xs text-muted-foreground sm:px-6">Market figures are estimates from 2025–26 public price guides for NY, NJ, PA and DE and vary by date, venue and guest count.</p>
     </section>}

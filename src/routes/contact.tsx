@@ -10,9 +10,9 @@ export const Route = createFileRoute("/contact")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Contact & Book — Sree Samanvaya Events" },
+      { title: "Contact & Book — Sree Samanvaya Events and Decor" },
       { name: "description", content: "Request a free quote for your event decor. Serving NY, NJ, PA and DE." },
-      { property: "og:title", content: "Book Your Event — Sree Samanvaya" },
+      { property: "og:title", content: "Book Your Event — Sree Samanvaya Events and Decor" },
       { property: "og:description", content: "Tell us about your celebration and receive a personalised concept and quote." },
     ],
   }),

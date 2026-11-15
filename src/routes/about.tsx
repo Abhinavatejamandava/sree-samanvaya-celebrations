@@ -10,9 +10,9 @@ export const Route = createFileRoute("/about")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "About Us — Sree Samanvaya Events" },
-      { name: "description", content: "Sree Samanvaya blends Indian traditions with modern creativity to style celebrations across NY, NJ, PA and DE." },
-      { property: "og:title", content: "About Sree Samanvaya Events" },
+      { title: "About Us — Sree Samanvaya Events and Decor" },
+      { name: "description", content: "Sree Samanvaya Events and Decor blends Indian traditions with modern creativity to style celebrations across NY, NJ, PA and DE." },
+      { property: "og:title", content: "About Sree Samanvaya Events and Decor" },
       { property: "og:description", content: "Samanvaya means harmony — of tradition and modern design, of families and celebrations." },
     ],
   }),
@@ -35,7 +35,7 @@ function About() {
           <Reveal delay={150}>
             <div className="space-y-4 text-sm leading-relaxed sm:text-base">
               <p className="font-display text-2xl italic text-primary sm:text-3xl">Celebrations are how families say "we love you" out loud.</p>
-              <p>Sree Samanvaya Groups LLC was born from a simple belief: the ceremonies our grandparents taught us deserve to be celebrated just as beautifully here, far from home, as they were back home.</p>
+              <p>Sree Samanvaya Events and Decor was born from a simple belief: the ceremonies our grandparents taught us deserve to be celebrated just as beautifully here, far from home, as they were back home.</p>
               <p>From a mother's Seemantham to a couple's 50th anniversary, we design spaces that carry meaning — fresh jasmine, brass lamps, royal drapes and gentle light — blended with modern styling your guests will remember.</p>
               <p>We serve families across New York, New Jersey, Pennsylvania and Delaware, with complete setup, styling and teardown — so you can be present for every blessing.</p>
             </div>

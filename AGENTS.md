@@ -35,4 +35,5 @@ use the editor.
 - Service process steps and market estimates live in src/lib/service-process.ts; process videos are auto-picked from src/assets/videos/process/<slug>-process.mp4.asset.json so adding a pointer is enough.
 - GitHub Pages uses a build-only static prerender with a repository base path and exported CDN videos; this supports direct links without a running server.
 - Static-host enquiries use validated email drafts and never claim delivery; GitHub Pages cannot execute the existing server function.
+- Request-form contact messages read CONTACT from services.ts rather than duplicate phone numbers, so future contact updates reach every enquiry state.
 - Illustrated service backgrounds and matching posters are resolved by slug in celebration-scenes.ts; CelebrationBackground handles persistent looping and reduced-motion preferences while original process footage stays separate.

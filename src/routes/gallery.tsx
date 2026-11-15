@@ -9,9 +9,9 @@ export const Route = createFileRoute("/gallery")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Gallery & Portfolio — Sree Samanvaya Events" },
+      { title: "Gallery & Portfolio — Sree Samanvaya Events and Decor" },
       { name: "description", content: "A showcase of our finest event decor, styling and unforgettable celebrations." },
-      { property: "og:title", content: "Gallery — Sree Samanvaya Events" },
+      { property: "og:title", content: "Gallery — Sree Samanvaya Events and Decor" },
       { property: "og:description", content: "Explore our event portfolio: traditional ceremonies and modern celebrations." },
     ],
   }),

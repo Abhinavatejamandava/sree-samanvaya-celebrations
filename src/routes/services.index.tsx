@@ -10,9 +10,9 @@ export const Route = createFileRoute("/services/")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Our Services — Sree Samanvaya Events" },
-      { name: "description", content: "Seemantham, Haldi, Pelli Kuthuru, weddings, Sangeeth, Satyanarayana Pooja, baby showers, anniversaries and event consulting." },
-      { property: "og:title", content: "Event Decor Services — Sree Samanvaya" },
+      { title: "Our Services — Sree Samanvaya Events and Decor" },
+      { name: "description", content: "Seemantham, Haldi, Pelli Kuthuru, weddings, Sangeeth, Satyanarayana Pooja, baby showers, anniversaries, balloon parties and event consulting." },
+      { property: "og:title", content: "Event Decor Services — Sree Samanvaya Events and Decor" },
       { property: "og:description", content: "Complete event decoration and styling for traditional Indian celebrations and modern events." },
     ],
   }),

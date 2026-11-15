@@ -27,6 +27,8 @@ import consultVid from "@/assets/videos/styling-scene.mp4.asset.json";
 import gatheringImg from "@/assets/svc-family-gathering.jpg";
 import getawayImg from "@/assets/svc-family-getaway.jpg";
 import gatheringVid from "@/assets/videos/family-gathering.mp4.asset.json";
+import balloonImg from "@/assets/svc-balloon-parties.jpg";
+import balloonVid from "@/assets/videos/process/balloon-parties-process.mp4.asset.json";
 import getawayVid from "@/assets/videos/family-getaway.mp4.asset.json";
 
 export type Category = "traditional" | "modern";
@@ -496,13 +498,33 @@ export const SERVICES: Service[] = [
       { q: "Are destinations and dates guaranteed?", a: "No. Stays, transport and activities depend on availability. We confirm the itinerary, provider terms and cancellation conditions before you commit." },
     ],
   },
+  {
+    slug: "balloon-parties", name: "Balloon Parties",
+    subtitle: "Birthdays · Milestones · Colorful Celebrations", price: "Custom Quote", category: "modern",
+    image: balloonImg, video: balloonVid.url,
+    tagline: "A little wonder. A burst of colour. A party that feels like you.",
+    short: "Personalised balloon arches, garlands and party backdrops for birthdays and milestones.",
+    meaning: "From a child's first birthday to a milestone shared with friends, balloon parties turn a familiar space into somewhere joyful. We shape the colours and setting around your occasion, welcoming every culture and every generation.",
+    story: [
+      "Imagine walking into a room filled with your favourite colours, a playful photo backdrop and the people who make the day special. The setting becomes part of the memory.",
+      "Choose a soft pastel celebration, a rich jewel-tone installation or a vibrant birthday theme. We discuss arches, organic garlands, table accents and personalised details to suit your space.",
+      "From the first colour consultation to installation and agreed pack-down, the proposal sets out exactly what is included. Optional catering and photography can be coordinated separately."
+    ],
+    includes: ["Theme and colour consultation", "Organic balloon arches and garlands", "Party backdrop and photo-area styling", "Cake and gift table decor", "Personalised signage options", "Delivery, installation and agreed teardown"],
+    feeling: "Playful enough for children. Beautiful enough for every milestone.",
+    faqs: [
+      { q: "Can you match our birthday theme?", a: "Share your colours, inspiration and occasion. We will propose balloon combinations and backdrop options, with availability and costs confirmed before booking." },
+      { q: "Can you decorate at home or outdoors?", a: "We discuss venue access, available space and safe installation points. Outdoor designs depend on wind, heat and weather; the final plan is agreed with you." },
+      { q: "Are food and photography included?", a: "These can be requested alongside your balloon party and are quoted separately unless specifically included in your proposal." }
+    ],
+  },
 ];
 
 export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug);
 
 export const CONTACT = {
   email: "celebrate@sreesamanvaya.com",
-  phone: "+1 845 309 9344",
+  phone: "+1 845 554 6470",
   areas: "NY | NJ | PA | DE",
 };
 export const svcAt = (i: number): Service => {

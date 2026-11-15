@@ -34,7 +34,7 @@ export function SiteFooter() {
           <Button asChild className="mt-4"><Link to="/contact/">Book a Consultation</Link></Button>
         </div>
       </div>
-      <div className="border-t border-border px-4 py-4 text-center text-xs opacity-80">© {new Date().getFullYear()} Sree Samanvaya Groups LLC · Events</div>
+      <div className="border-t border-border px-4 py-4 text-center text-xs opacity-80">© {new Date().getFullYear()} Sree Samanvaya Events and Decor</div>
     </footer>
   );
 }

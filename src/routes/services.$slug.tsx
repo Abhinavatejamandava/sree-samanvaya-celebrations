@@ -20,12 +20,12 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ loaderData }) => {
     const s = loaderData ? getService(loaderData.slug) : undefined;
-    if (!s) return { meta: [{ title: "Service not found — Sree Samanvaya" }, { name: "robots", content: "noindex" }] };
+    if (!s) return { meta: [{ title: "Service not found — Sree Samanvaya Events and Decor" }, { name: "robots", content: "noindex" }] };
     return {
       meta: [
-        { title: `${s.name} — Sree Samanvaya Events` },
+        { title: `${s.name} — Sree Samanvaya Events and Decor` },
         { name: "description", content: `${s.tagline} ${s.short}` },
-        { property: "og:title", content: `${s.name} — Sree Samanvaya` },
+        { property: "og:title", content: `${s.name} — Sree Samanvaya Events and Decor` },
         { property: "og:description", content: s.tagline },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
