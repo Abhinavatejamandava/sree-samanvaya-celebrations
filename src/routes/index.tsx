@@ -6,6 +6,8 @@ import { ServiceCard } from "@/components/site/ServiceCard";
 import { SectionTitle } from "@/components/site/Ornament";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
+import { getCelebrationScene } from "@/lib/celebration-scenes";
+import { CelebrationBackground } from "@/components/site/CelebrationBackground";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -31,23 +33,25 @@ function Home() {
   const [area, setArea] = useState("");
   const navigate = useNavigate();
   const hero = getService("wedding") ?? svcAt(3);
+  const scene = getCelebrationScene(hero.slug);
   const featured = SERVICES.filter(s => ["wedding", "seemantham", "haldi", "sangeeth"].includes(s.slug));
   return <>
-    <section className="hero-home relative isolate flex items-center justify-center overflow-hidden">
-      <video src={hero.video} poster={hero.image} autoPlay muted loop playsInline className="absolute inset-0 -z-20 h-full w-full object-cover" />
-      <div className="absolute inset-0 -z-10 bg-hero-fade" />
-      <div className="w-full max-w-4xl px-4 py-12 text-center sm:px-8">
-        <p className="text-xs font-medium uppercase text-ivory">Indian traditions. Modern celebrations.</p>
-        <h1 className="hero-title mt-4 font-semibold text-ivory">Sree Samanvaya</h1>
-        <p className="mx-auto mt-4 max-w-xl text-base text-ivory sm:text-xl">Beautiful celebrations start here.</p>
-        <form className="discovery mx-auto mt-8 max-w-2xl overflow-hidden rounded-sm bg-background text-left shadow-card" onSubmit={e => { e.preventDefault(); void navigate({ to: "/services/$slug/", params: { slug: service } }); }}>
+    <section className="celebration-hero relative isolate overflow-hidden">
+      <CelebrationBackground src={scene?.video ?? hero.video} poster={scene?.poster ?? hero.image} label="Animated bride and groom exchanging wedding garlands" />
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-8">
+       <div className="celebration-hero-copy">
+        <p className="celebration-kicker text-xs font-medium uppercase text-gold-soft">Indian traditions. Every culture welcome.</p>
+        <h1 className="hero-title mt-5 text-ivory">Sree Samanvaya</h1>
+        <p className="mt-4 max-w-xl text-base text-ivory sm:text-xl">Rich in tradition.<br />Beautifully yours.</p>
+        <form className="discovery mt-8 max-w-2xl overflow-hidden rounded-sm bg-background text-left shadow-card" onSubmit={e => { e.preventDefault(); void navigate({ to: "/services/$slug/", params: { slug: service } }); }}>
           <label className="border-b border-border px-4 py-3 sm:border-r sm:border-b-0"><span className="mb-1 block text-[0.6rem] uppercase text-muted-foreground">Your celebration</span><select aria-label="Your celebration" value={service} onChange={e => setService(e.target.value)}>{SERVICES.map(s => <option key={s.slug} value={s.slug}>{s.name}</option>)}</select></label>
           <label className="border-b border-border px-4 py-3 sm:border-b-0"><span className="mb-1 block text-[0.6rem] uppercase text-muted-foreground">Location</span><select aria-label="Location" value={area} onChange={e => setArea(e.target.value)}><option value="">NY · NJ · PA · DE</option>{["New York", "New Jersey", "Pennsylvania", "Delaware"].map(a => <option key={a}>{a}</option>)}</select></label>
           <div className="flex p-2"><Button type="submit" className="h-full min-h-11 w-full px-6">Explore <ArrowRight /></Button></div>
         </form>
+       </div>
       </div>
     </section>
-    <div className="border-b border-border bg-background px-4 py-4 text-center text-xs text-muted-foreground">Decor · Planning · Catering · Photography <span className="mx-2 text-gold">/</span> NY · NJ · PA · DE</div>
+    <div className="celebration-strip px-4 py-4 text-center text-xs">Decor · Planning · Catering · Photography <span className="mx-2 text-gold-soft">/</span> NY · NJ · PA · DE</div>
 
     <section className="py-14 sm:py-20">
       <SectionTitle title="Celebrations Worth Remembering" />
@@ -56,7 +60,7 @@ function Home() {
       <div className="mt-6 text-center"><Button asChild variant="outline"><Link to="/services/">All Celebrations <ArrowRight /></Link></Button></div>
     </section>
 
-    <section className="border-y border-border bg-secondary py-14 sm:py-20">
+    <section className="celebration-section border-y border-border py-14 sm:py-20">
       <SectionTitle title="Every Detail, Beautifully Together" />
       <p className="mx-auto mt-3 max-w-xl px-4 text-center text-sm text-muted-foreground">The people, flavours, and finishing touches that make a celebration yours.</p>
       <div className="mx-auto mt-9 grid max-w-[1440px] gap-6 px-4 min-[480px]:grid-cols-2 sm:px-8 lg:grid-cols-4">{ESSENTIALS.map(({slug,title,icon:Icon,text},i) => {

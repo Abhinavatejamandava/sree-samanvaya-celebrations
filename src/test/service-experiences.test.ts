@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { getService, SERVICES } from "@/lib/services";
 import { getServiceExperience } from "@/lib/service-experiences";
+import { getCelebrationScene } from "@/lib/celebration-scenes";
 
 describe("Celebration offerings", () => {
   it("offers catering, comedy and live music for family gatherings", () => {
@@ -33,6 +34,15 @@ describe("Full event process", () => {
 });
 
 describe("Process footage", () => {
+  it("provides a separate illustrated background and matching poster for all 15 services", () => {
+    const scenes = SERVICES.map(s => getCelebrationScene(s.slug));
+    expect(scenes).toHaveLength(15);
+    for (const scene of scenes) {
+      expect(scene?.video).toBeTruthy();
+      expect(scene?.poster).toBeTruthy();
+    }
+    expect(new Set(scenes.map(scene => scene?.video)).size).toBe(15);
+  });
   it("has a process video for every service", () => {
     const files = Object.keys(import.meta.glob("../assets/videos/process/*.asset.json"));
     for (const s of SERVICES) expect(files.some(f => f.endsWith(`/${s.slug}-process.mp4.asset.json`))).toBe(true);

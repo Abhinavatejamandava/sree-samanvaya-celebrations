@@ -24,3 +24,8 @@
 - [x] Fix static prerender redirect loop (trailing-slash canonical URLs) so all 21 pages export.
 - [x] Build and verify a self-contained static package (pages + all videos) for the user's own hosting.
 - [x] Deliver the uploadable ZIP and confirm videos autoplay and the email-draft enquiry flow works.
+
+# Colorful traditional animation refresh
+- [x] Use the exact S-and-lotus logo from the supplied flyer.
+- [x] Create and integrate a distinct animated character scene for each of the 15 services.
+- [x] Refine the site with colorful, classy accents and verify desktop, mobile and looping playback.

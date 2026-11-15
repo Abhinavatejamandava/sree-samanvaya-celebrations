@@ -1,16 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import type { Service } from "@/lib/services";
 import { ArrowUpRight } from "lucide-react";
+import { getCelebrationScene } from "@/lib/celebration-scenes";
 
 export function ServiceCard({ s }: { s: Service }) {
   return (
     <Link
       to="/services/$slug/"
       params={{ slug: s.slug }}
-      className="group block min-w-0 bg-background"
+      className="celebration-card group block min-w-0 bg-background"
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-        <img src={s.image} alt={s.name} loading="lazy" width={1536} height={864} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+      <div className="celebration-card-media relative aspect-[4/3] overflow-hidden rounded-sm">
+        <img src={getCelebrationScene(s.slug)?.poster ?? s.image} alt={s.name} loading="lazy" width={1536} height={864} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
       </div>
       <div className="py-4">
         <p className="text-[0.65rem] uppercase text-gold">{s.category === "traditional" ? "Tradition & celebration" : "Celebration essentials"}</p>

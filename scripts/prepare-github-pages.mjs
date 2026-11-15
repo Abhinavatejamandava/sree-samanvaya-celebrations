@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
-// Runs only in GitHub Actions: copy CDN videos into the Pages artifact, not Git.
+// Runs only in static-host preparation: copy CDN media into the artifact, not Git.
 const origin = new URL(process.env.ASSET_SOURCE_ORIGIN || "https://id-preview--951a2035-196e-4395-ac86-bd265fbe80cc.lovable.app");
 const base = `/${(process.env.VITE_SITE_BASE || "/").split("/").filter(Boolean).join("/")}/`.replace(/^\/\/$/, "/");
 
@@ -21,11 +21,12 @@ async function prepare(directory) {
       const destination = path.join("public", relative);
       await mkdir(path.dirname(destination), { recursive: true });
       const response = await fetch(new URL(pointer.url, origin), { signal: AbortSignal.timeout(120_000) });
-      if (!response.ok || !response.headers.get("content-type")?.startsWith("video/")) {
-        throw new Error(`Could not download video for ${file}: ${response.status}. Check ASSET_SOURCE_ORIGIN.`);
+      const contentType = response.headers.get("content-type") || "";
+      if (!response.ok || !(contentType.startsWith("video/") || contentType.startsWith("image/"))) {
+        throw new Error(`Could not download media for ${file}: ${response.status}. Check ASSET_SOURCE_ORIGIN.`);
       }
       const bytes = new Uint8Array(await response.arrayBuffer());
-      if (pointer.size && bytes.length !== pointer.size) throw new Error(`Incomplete video: ${file}`);
+      if (pointer.size && bytes.length !== pointer.size) throw new Error(`Incomplete media: ${file}`);
       await writeFile(destination, bytes);
       // The CI checkout is disposable. Original pointers in Git remain unchanged.
       await writeFile(file, JSON.stringify({ ...pointer, url: `${base}${relative}` }, null, 2));

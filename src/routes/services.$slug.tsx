@@ -9,6 +9,8 @@ import { ServiceExperience } from "@/components/site/ServiceExperience";
 import { Button } from "@/components/ui/button";
 import { ServiceScene } from "@/components/site/ServiceScene";
 import { ServiceProcess } from "@/components/site/ServiceProcess";
+import { getCelebrationScene } from "@/lib/celebration-scenes";
+import { CelebrationBackground } from "@/components/site/CelebrationBackground";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -44,11 +46,11 @@ function ServicePage() {
   const s = getService(slug);
   if (!s) return null;
   const others = SERVICES.filter((o) => o.slug !== s.slug).slice(0, 3);
+  const scene = getCelebrationScene(s.slug);
   return (
     <>
       <section className="relative isolate overflow-hidden">
-        <video key={s.video} src={s.video} poster={s.image} autoPlay muted loop playsInline className="absolute inset-0 -z-20 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-hero-fade" />
+        <CelebrationBackground src={scene?.video ?? s.video} poster={scene?.poster ?? s.image} label={`${s.name} animated celebration background`} />
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-32">
           <p className="font-accent text-[0.6rem] tracking-[0.3em] text-gold-soft uppercase sm:text-xs">{s.subtitle}</p>
           <h1 className="fluid-h1 mt-3 max-w-3xl font-semibold tracking-tight break-words text-ivory">{s.name}</h1>
